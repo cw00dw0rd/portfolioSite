@@ -20,5 +20,9 @@ export default {
 <style scoped>
   .home {
     text-align: left;
+    background-color: rgb(186,186,186);
+    height: 1000px;
+    width: 80%;
+    margin: 0 auto;
   }
 </style>
