@@ -10,11 +10,11 @@
 </template>
 
 <style>
-body {
+/* body {
   background: linear-gradient(to bottom, #555, #999);
   background-attachment: fixed;
   height: 100%;
-}
+} */
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

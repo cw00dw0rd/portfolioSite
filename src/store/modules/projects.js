@@ -5,7 +5,7 @@ import axios from 'axios'
 export default {
   namespaced: true,
   state: {
-    projects: null
+    projects: []
   },
   mutations: {
     updateProjects (state, projects) {

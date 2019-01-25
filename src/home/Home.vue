@@ -1,10 +1,10 @@
 <template>
   <div class="home">
-    <img alt="My picture" src="../assets/myPhoto.jpeg">
-    <HomeIntro msg="Portfolio Site for Chris Woodward"/>
-    <Project projectId='0'/>
-    <Project projectId='1'/>
-    <Project projectId='2'/>
+    <!-- <div class="greeting">
+      <img alt="My picture" src="../assets/myPhoto.jpeg">
+      <HomeIntro msg="Portfolio Site for Chris Woodward"/>
+    </div> -->
+    <Project />
   </div>
 </template>
 
@@ -18,16 +18,32 @@ export default {
   components: {
     HomeIntro,
     Project
+  },
+  computed: {
+    // Project () {
+    //   const { projectId } = this
+    //   return this.$store.state.projects.projects.projects[projectId]
+    //   // return this.$store.state.projects.projects.project[+projectId]
+    // }
   }
 }
 </script>
 
 <style scoped>
+* {
+  box-sizing: border-box;
+}
   .home {
-    text-align: left;
+    /* text-align: left; */
     background-color: rgb(186,186,186);
-    /* height: 1000px; */
-    width: 80%;
+    width: 90%;
     margin: 0 auto;
+  }
+  .greeting {
+  }
+  .greeting img {
+    text-align: left;
+    max-width: 60%;
+    height: 200px;
   }
 </style>
