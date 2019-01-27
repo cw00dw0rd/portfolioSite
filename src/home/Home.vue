@@ -4,7 +4,7 @@
       <img alt="My picture" src="../assets/myPhoto.jpeg">
       <HomeIntro msg="Portfolio Site for Chris Woodward"/>
     </div> -->
-    <Project />
+    <Project projectId="passed"/>
   </div>
 </template>
 
@@ -33,17 +33,17 @@ export default {
 * {
   box-sizing: border-box;
 }
-  .home {
-    /* text-align: left; */
-    background-color: rgb(186,186,186);
-    width: 90%;
-    margin: 0 auto;
-  }
-  .greeting {
-  }
-  .greeting img {
-    text-align: left;
-    max-width: 60%;
-    height: 200px;
-  }
+.home {
+position: relative;
+/* z-index: 1; */
+/* width: 99%; */
+/* top: 60px; */
+/* bottom: -10px; */
+margin: auto 0;
+background-repeat: no-repeat;
+/* background-size: cover; */
+-webkit-filter: brightness(80%);
+filter: brightness(80%);
+}
+
 </style>

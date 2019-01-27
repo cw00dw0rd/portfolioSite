@@ -1,10 +1,25 @@
 <template lang="html">
   <div id="projector" class="projectContainer">
     <div v-for="(project) in Project" :key="project.id">
-      <div :style="{'background-image': backgroundImage(project.src)}" class="bg">
-      <h1>{{project.title}}</h1>
-      <p>{{project.description}}</p>
-      <img class="projectImage" :src="project.src" alt="Project Name">
+      <router-view />
+      <div class="innerProject" :id=project.tag @mouseout="show = false" @mouseover="show = true" :style="{'background-image': backgroundImage(project.src)}">
+          <h1 class="projectTitle" >{{project.title}}</h1>
+          <p class="projectDescription">{{project.description}}</p>
+          <!-- <button type="button" name="techButton"
+          @click="show = !show"
+          @mouseover="show = !show"
+          @mouseout="show = !show">
+          Tech Used
+        </button> -->
+
+          <div class="techDiv">
+            <p class="techList" v-for="(skill, index) in project.tech" :key="index">
+               - {{skill}} -
+            </p>
+          </div>
+
+          <!-- <p class="topLeft">LEFT</p> -->
+      <!-- <img class="projectImage" :src="project.src" alt="Project Name"> -->
     </div>
     </div>
   </div>
@@ -21,16 +36,17 @@ export default {
     this.updateProject()
   },
   props: {
-    projectId: {
-      type: String
-    }
+    projectId: String
   },
   data () {
     return {
       Project: Project.project,
       Id: this.projectId,
-      projectObj: {}
-
+      // width: window.innerWidth,
+      // height: window.innerHeight,
+      projectObj: {},
+      show: true,
+      divId: 0
     }
   },
   computed: {
@@ -50,28 +66,59 @@ export default {
     backgroundImage (url) {
       let overlay = 'linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5))'
       return 'url("' + url + '"), ' + overlay
+    },
+    leave () {
+      this.show = false
     }
   }
 }
 </script>
-<style lang="css">
-body {
-  background-size: contain;
-  height: 100%;
-  background-repeat: no-repeat;
-}
 
-</style>
 <style lang="css" scoped>
-.projectContainer {
-  background-color: white;
+.innerProject {
+  background-size: cover;
+  height: 100vh;
+  background-repeat: no-repeat;
+  transition: 2s;
+  -webkit-filter: brightness(50%);
+  filter: brightness(50%);
 }
-.bg {
+.innerProject:hover {
+  transition: 2s;
+  -webkit-filter: brightness(100%);
+  filter: brightness(100%);
+}
+.projectTitle {
+  position: relative;
+  text-align: center;
+  padding-top: 10%;
+  /* padding-left:5vw; */
+}
+.projectDescription {
+  text-align: center;
+  /* padding-left: 5vw; */
+}
+.topLeft {
+  position: fixed;
+  top: 8px;
+  left: 16px;
+  font-size: 18px;
+}
+.techDiv {
+  text-align: center;
+  /* max-width: 20em; */
+  /* padding-left: 35vw; */
+}
+.techList {
+  display: inline-block;
+  text-align: center;
+}
+/* .bg {
   background-size: contain;
   height: 100%;
   background-repeat: no-repeat;
 }
 .projectImage {
   max-width: 100%;
-}
+} */
 </style>
