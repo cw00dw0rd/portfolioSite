@@ -9,7 +9,8 @@ const projects = {
       src: images('./bg.jpg'),
       url: 'https://www.newfangledcoffee.com',
       tech: ['Python', 'Django', 'Bootstrap', 'Apache', 'SQL', 'HTML', 'CSS'],
-      tag: 'python'
+      tag: 'python',
+      icon: images('./pythonLogo.png')
     },
     {
       id: 1,
@@ -18,7 +19,8 @@ const projects = {
       src: images('./electronCarbonAPI.png'),
       url: 'https://github.com/cw00dw0rd/carbonblackcsv',
       tech: ['Electron', 'Javascript', 'HTML', 'CSS'],
-      tag: 'electron'
+      tag: 'vue',
+      icon: images('./electronLogo.png')
     },
     {
       id: 2,
@@ -27,7 +29,8 @@ const projects = {
       src: images('./focallocal.png'),
       url: 'https://github.com/cw00dw0rd/fl-maps',
       tech: ['Meteor', 'React', 'Webpack', 'Javascript', 'MongoDB', 'HTML', 'CSS'],
-      tag: 'react'
+      tag: 'meteor',
+      icon: images('./meteorLogo.png')
     },
     {
       id: 3,
@@ -36,7 +39,8 @@ const projects = {
       src: images('./focallocal.png'),
       url: 'https://github.com/cw00dw0rd/fl-maps',
       tech: ['Meteor', 'React', 'Webpack', 'Javascript', 'MongoDB', 'HTML', 'CSS'],
-      tag: 'meteor'
+      tag: 'react',
+      icon: images('./reactLogo.png')
     }
   ]
 }

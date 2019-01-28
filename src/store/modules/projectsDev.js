@@ -5,11 +5,19 @@ import Projects from '../../data/projects'
 export default {
   namespaced: true,
   state: {
-    projects: Projects
+    projects: [],
+    projectTags: [],
+    projectIcons: []
   },
   mutations: {
     updateProjects (state, projects) {
-      state.projects = projects
+      state.projects = projects.project
+      if (projects.project !== undefined && state.projectTags.length === 0) {
+        for (let i = 0; i < projects.project.length; i++) {
+          state.projectTags.push(projects.project[i].tag)
+          state.projectIcons.push(projects.project[i].icon)
+        }
+      }
     }
   },
   actions: {

@@ -2,24 +2,16 @@
   <div id="projector" class="projectContainer">
     <div v-for="(project) in Project" :key="project.id">
       <router-view />
-      <div class="innerProject" :id=project.tag @mouseout="show = false" @mouseover="show = true" :style="{'background-image': backgroundImage(project.src)}">
+      <div class="innerProject"
+        :id=project.tag
+        :style="{'background-image': backgroundImage(project.src)}">
           <h1 class="projectTitle" >{{project.title}}</h1>
           <p class="projectDescription">{{project.description}}</p>
-          <!-- <button type="button" name="techButton"
-          @click="show = !show"
-          @mouseover="show = !show"
-          @mouseout="show = !show">
-          Tech Used
-        </button> -->
-
           <div class="techDiv">
             <p class="techList" v-for="(skill, index) in project.tech" :key="index">
                - {{skill}} -
             </p>
           </div>
-
-          <!-- <p class="topLeft">LEFT</p> -->
-      <!-- <img class="projectImage" :src="project.src" alt="Project Name"> -->
     </div>
     </div>
   </div>
@@ -32,7 +24,7 @@ import { mapActions } from 'vuex'
 export default {
   name: 'Project',
   created () {
-    this.getProjects()
+    // this.getProjects()
     this.updateProject()
   },
   props: {
@@ -45,7 +37,6 @@ export default {
       // width: window.innerWidth,
       // height: window.innerHeight,
       projectObj: {},
-      show: true,
       divId: 0
     }
   },
@@ -66,9 +57,6 @@ export default {
     backgroundImage (url) {
       let overlay = 'linear-gradient(270deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, .5))'
       return 'url("' + url + '"), ' + overlay
-    },
-    leave () {
-      this.show = false
     }
   }
 }
@@ -80,18 +68,17 @@ export default {
   height: 100vh;
   background-repeat: no-repeat;
   transition: 2s;
-  -webkit-filter: brightness(50%);
-  filter: brightness(50%);
+  filter: brightness(30%);
 }
 .innerProject:hover {
-  transition: 2s;
+  transition: 1s;
   -webkit-filter: brightness(100%);
   filter: brightness(100%);
 }
 .projectTitle {
   position: relative;
   text-align: center;
-  padding-top: 10%;
+  padding-top: 15vh;
   /* padding-left:5vw; */
 }
 .projectDescription {
@@ -121,4 +108,16 @@ export default {
 .projectImage {
   max-width: 100%;
 } */
+
+@media screen and (max-width: 600px), (max-height: 600px){
+  .innerProject {
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+  }
+  .innerProject:hover {
+    transition: 1s;
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+  }
+}
 </style>
