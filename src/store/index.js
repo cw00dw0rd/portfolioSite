@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-// import projectsModule from './modules/projects'
-import projectsModule from './modules/projectsDev'
+import projectsModule from './modules/projects'
+// import projectsModule from './modules/projectsDev'
 
 Vue.use(Vuex)
 

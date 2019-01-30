@@ -1,20 +1,22 @@
 <template>
   <div class="home">
-    <!-- <div class="greeting">
-      <img alt="My picture" src="../assets/myPhoto.jpeg">
-      <HomeIntro msg="Portfolio Site for Chris Woodward"/>
-    </div> -->
-    <Project />
+      <HomeIntro />
+      <Project />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import HomeIntro from '@/home/HomeIntro.vue'
+import Projects from '../data/projects'
 import Project from '@/projects/Project.vue'
 
 export default {
   name: 'home',
+  data () {
+    return {
+      Projects: Projects.project
+    }
+  },
   components: {
     HomeIntro,
     Project
@@ -33,17 +35,13 @@ export default {
 * {
   box-sizing: border-box;
 }
-  .home {
-    /* text-align: left; */
-    background-color: rgb(186,186,186);
-    width: 90%;
-    margin: 0 auto;
-  }
-  .greeting {
-  }
-  .greeting img {
-    text-align: left;
-    max-width: 60%;
-    height: 200px;
-  }
+.home {
+padding-top: 5vh;
+position: relative;
+margin: auto 0;
+background-repeat: no-repeat;
+-webkit-filter: brightness(80%);
+filter: brightness(80%);
+}
+
 </style>
