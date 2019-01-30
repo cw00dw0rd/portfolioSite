@@ -1,17 +1,11 @@
 <template>
   <div class="home">
-
-      <!-- <img alt="My picture" src="../assets/myPhoto.jpeg"> -->
       <HomeIntro />
-
-    <!-- <div v-for="(project) in Projects" :key="project.id"> -->
       <Project />
-    <!-- </div> -->
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
 import HomeIntro from '@/home/HomeIntro.vue'
 import Projects from '../data/projects'
 import Project from '@/projects/Project.vue'

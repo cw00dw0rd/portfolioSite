@@ -5,26 +5,35 @@
       <div class="innerProject"
         :id=project.tag
         :style="{'background-image': backgroundImage(project.src)}">
-          <h1 class="projectTitle" >{{project.title}}</h1>
-          <p class="projectDescription">{{project.description}}</p>
-          <div class="techDiv">
-            <p class="techList" v-for="(skill, index) in project.tech" :key="index">
-               - {{skill}} -
+        <div class="infoContainer">
+          <h1 id="projectTitle" >{{project.title}}</h1>
+          <p id="projectDescription">{{project.description}}</p>
+          <div id="website">
+            Website: <a :href=project.url>{{project.url}}</a>
+          </div>
+          <h3 id="skillsHeader">Skills Used: </h3>
+          <p id="techList" v-for="(skill, index) in project.tech" :key="index">
+            - {{skill}} -
+          </p>
+          <div class="summary">
+            <p>
+              {{project.summary}}
             </p>
           </div>
+        </div>
     </div>
     </div>
   </div>
 </template>
 
 <script>
-import Project from '../data/projects'
+// import Project from '../data/projects'
 import { mapActions } from 'vuex'
 
 export default {
   name: 'Project',
   created () {
-    // this.getProjects()
+    this.getProjects()
     this.updateProject()
   },
   props: {
@@ -32,22 +41,20 @@ export default {
   },
   data () {
     return {
-      Project: Project.project,
+      // Project: Project.project,
       Id: this.projectId,
-      // width: window.innerWidth,
-      // height: window.innerHeight,
       projectObj: {},
       divId: 0
     }
   },
   computed: {
-    // Project () {
-    //   const { projectId } = this
-    //   if (this.$store.state.projects.projects.projects === undefined) {
-    //     return
-    //   }
-    //   return this.$store.state.projects.projects.projects[projectId]
-    // }
+    Project () {
+      const { projectId } = this
+      if (this.$store.state.projects.projects === undefined) {
+        return
+      }
+      return this.$store.state.projects.projects
+    }
   },
   methods: {
     ...mapActions('projects', ['getProjects', 'updateProjects']),
@@ -69,21 +76,21 @@ export default {
   background-repeat: no-repeat;
   transition: 2s;
   filter: brightness(30%);
+  border-radius: 8px;
 }
-.innerProject:hover {
+.projector:hover {
+  padding: 2vh;
   transition: 1s;
   -webkit-filter: brightness(100%);
   filter: brightness(100%);
 }
-.projectTitle {
+#projectTitle {
   position: relative;
   text-align: center;
   padding-top: 15vh;
-  /* padding-left:5vw; */
 }
-.projectDescription {
+#projectDescription {
   text-align: center;
-  /* padding-left: 5vw; */
 }
 .topLeft {
   position: fixed;
@@ -93,31 +100,78 @@ export default {
 }
 .techDiv {
   text-align: center;
-  /* max-width: 20em; */
-  /* padding-left: 35vw; */
 }
-.techList {
+#techList {
   display: inline-block;
   text-align: center;
 }
-/* .bg {
-  background-size: contain;
-  height: 100%;
-  background-repeat: no-repeat;
+.infoContainer {
+  background-color: rgba(255,255,255,.8);
+  margin: 0 auto;
+  width: 60vw;
+  height: 80vh;
+  border-radius: 8px;
 }
-.projectImage {
-  max-width: 100%;
-} */
-
-@media screen and (max-width: 600px), (max-height: 600px){
+#skillsHeader {
+  margin-bottom: 0;
+}
+#website {
+overflow: hidden;
+}
+@media screen and (max-width: 900px), (max-height: 900px){
   .innerProject {
-    -webkit-filter: brightness(100%);
-    filter: brightness(100%);
+    -webkit-filter: brightness(30%);
+    filter: brightness(30%);
+    padding-top: 2vh;
+
   }
   .innerProject:hover {
     transition: 1s;
     -webkit-filter: brightness(100%);
     filter: brightness(100%);
   }
+  .infoContainer {
+    width: 80vw;
+    height: 80vh;
+  }
+  .infoContainer p{
+    font-size: 1em;
+  }
+  .summary {
+    padding: 2.5vw;
+    font-size: .85em;
+  }
+}
+
+@media screen and (max-width: 700px), (max-height: 600px){
+  .innerProject {
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+    padding-top: 2vh;
+  }
+  .innerProject:hover {
+    transition: 1s;
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+  }
+  .infoContainer {
+    width: 90vw;
+    height: 90vh;
+  }
+  .infoContainer p{
+    font-size: .9em;
+  }
+  .summary {
+    padding: 2.5vw;
+    font-size: .8em;
+  }
+}
+@media screen and (max-width: 400px) {
+  .infoContainer p{
+    font-size: .8em;
+  }
+.summary {
+  font-size: .75em;
+}
 }
 </style>
