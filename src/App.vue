@@ -6,7 +6,7 @@
       <a :id="[tags+'Icon']"
       :style="{
         'top': (index === 0 ? '-150px' : (index * 100) - 150 +'px' ),
-         'left': onMobile ? leftVals[index] : '',
+         'left': mobileScreen ? leftVals[index] : '',
          'zIndex': (index === 0 ? 2 : '')
         }">
         <img @click="scrollToEnd(tags)" :src="getIcon(index)"/>
@@ -18,7 +18,7 @@
   <li v-if="notHome" id="actionButton">
     <transition name="actionFade">
     <div v-if="actionButtonClicked" id="contactMe">
-      <a href="mailto:cw00dw0rd@gmail.com">
+      <a href="mailto:chris@cwoodward.net">
     <i class="material-icons">border_color</i>
     </a>
   </div>
@@ -58,7 +58,13 @@ export default {
     window.addEventListener('resize', this.onResize)
   },
   created () {
+    this.onResize()
     window.addEventListener('resize', this.onResize)
+  },
+  updated () {
+    if ((window.innerWidth <= 900 || window.innerHeight <= 600) && this.leftVal.length === 0) {
+      this.onResize()
+    }
   },
   beforeDestroy () {
     window.removeEventListener('resize', this.onResize)
@@ -93,7 +99,7 @@ export default {
         if (window.innerWidth <= 900 || window.innerHeight <= 600) {
           this.mobileScreen = this.onMobile
           this.projectTags.forEach((val, i) => {
-            this.leftVal.push((-2.1 + (3 * i)) + 'em')
+            this.leftVal.push((-2 + (3 * i)) + 'em')
           })
           // for (let i = 0; i <= this.projectTags.length; i++) {
           // }
@@ -161,7 +167,7 @@ body {
 }
 #mySidenav a img{
   transition: .3s;
-  width: 6.5vw;
+  width: 5vw;
   height: auto;
   -webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));
   filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));

@@ -1,7 +1,7 @@
 <template>
   <div class="mainIntro">
     <div class="intro">
-      <div class="">
+      <div>
         <img src="../assets/myPhoto.jpeg" alt="">
       </div>
       <h1>Chris Woodward - Developer</h1>
@@ -9,7 +9,10 @@
         Highly motivated and detail-oriented Full Stack Developer, who strives to deliver high quality, creative, and valuable solutions. Proven track record in multiple languages, libraries, and web frameworks. Experienced in starting and maintaining projects from scratch, as well as participating as a team member on large, established code bases. Portfolio showcases large-scale community project work done, completed classwork projects, and a variety of original web applications demonstrating proficiency in multiple stacks.
       </p>
     </div>
-    <p id="emailMe">Contact me at: <a href="mailto:cw00dw0rd@gmail.com">cw00dw0rd@gmail.com</a></p>
+    <p id="emailMe">Contact me at: <a href="mailto:chris@cwoodward.net">chris@cwoodward.net</a></p>
+    <p id="emailMe">Download Resume: <a href="/api/assets/resume.pdf">Here</a></p>
+
+    <!-- <p id="resume">Download Resume: <a href="/api/assets/resume.pdf">Here</a></p> -->
     <div id="iconSkills">
       <div id="frontend">
         <i class="material-icons">web</i>
@@ -134,28 +137,33 @@ export default {
  }
  .material-icons{
    padding-left: 3.25vw;
-   font-size: 8vw;
+   font-size: 6vw;
  }
  #frontend {
    float: left;
    width: 15vw;
    height: 40vh;
-   font-size: .7em;
+   font-size: .67em;
    text-align: left;
    overflow: hidden;
    padding: 1vw;
  }
  #frontend ul {
+   margin-top: 0px;
    padding-left: 2vw;
  }
  #emailMe {
    padding: 0;
    margin: 0;
+   font-size: .8em;
  }
- @media screen and (max-width: 900px), (max-height: 600px) {
+ @media screen and (max-width: 950px), (max-height: 600px) {
    .mainIntro {
      margin: 0 auto;
      width: 96vw;
+   }
+   .intro {
+     height: 35vh;
    }
    .intro img {
      width: 20vw;
@@ -168,21 +176,32 @@ export default {
      text-align-last: left;
    }
    .intro p {
-     font-size: 2.25vw;
+     font-size: 1.75vw;
      padding-left: 0;
    }
    #frontend {
      width: 20vw;
+     height: 50vh;
      margin: auto;
     text-align: left;
-    font-size: 1.6vw;
    }
    #frontend ul {
      padding-left: 2.25vw;
-     font-size: 1.6vw;
+     /* margin-top: 0px; */
+     font-size: .9.7em;
+   }
+   #frontend p {
+     /* margin-bottom: 0px; */
+     /* font-size: .9em; */
+   }
+   #frontend h3 {
+     /* font-size: 1em; */
    }
    .material-icons{
      font-size: 5vw;
+   }
+   #emailMe {
+     font-size: .8em;
    }
 }
 @media screen and (max-width: 600px) {
@@ -193,8 +212,11 @@ export default {
     text-align-last: left;
   }
   .intro p {
-    font-size: 3vw;
+    font-size: 2.25vw;
     padding-left: 0;
+  }
+  #frontend h3 {
+    margin-top: 0px;
   }
 }
 @media screen and (max-height: 450px) {
