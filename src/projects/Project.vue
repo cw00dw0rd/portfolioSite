@@ -49,7 +49,6 @@ export default {
   },
   computed: {
     Project () {
-      const { projectId } = this
       if (this.$store.state.projects.projects === undefined) {
         return
       }
@@ -118,6 +117,15 @@ export default {
 #website {
 overflow: hidden;
 }
+
+@media not screen and (max-width: 900px) {
+  .innerProject:hover {
+    transition: 1s;
+    -webkit-filter: brightness(100%);
+    filter: brightness(100%);
+  }
+}
+
 @media screen and (max-width: 900px), (max-height: 900px){
   .innerProject {
     -webkit-filter: brightness(30%);
@@ -138,6 +146,7 @@ overflow: hidden;
     font-size: 1em;
   }
   .summary {
+    height: 20vh;
     padding: 2.5vw;
     font-size: .85em;
   }
@@ -164,6 +173,8 @@ overflow: hidden;
   .summary {
     padding: 2.5vw;
     font-size: .8em;
+    overflow-wrap: break-word;
+    overflow: scroll;
   }
 }
 @media screen and (max-width: 400px) {
@@ -172,6 +183,8 @@ overflow: hidden;
   }
 .summary {
   font-size: .75em;
+  overflow: scroll;
+  text-overflow: ellipsis;
 }
 }
 </style>
